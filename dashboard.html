@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga App - Dashboard</title>
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #4ea663, #94d48f);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+/* Dashboard Card */
+.dashboard-container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Welcome text */
+h1 {
+  color: #2e6046;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+/* Action buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4db6ff, #0099ff);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0099ff, #007acc);
+  transform: translateY(-1px);
+}
+
+/* Subtle footer */
+.footer-text {
+  margin-top: 25px;
+  font-size: 13px;
+  color: #666;
+  opacity: 0.8;
+}
+
+.footer-text a {
+  color: #007acc;
+  text-decoration: none;
+  position: relative;
+}
+
+.footer-text a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: #007acc;
+  border-radius: 1px;
+}
+</style>
+</head>
+<body>
+<div class="dashboard-container">
+  <h1 id="welcome">Welcome!</h1>
+  <p>Great to see you back. Let’s continue your wellness journey </p>
+  <button id="logout">Logout</button>
+  <div class="footer-text">
+    Need help? <a href="#">Contact Support</a>
+  </div>
+</div>
+
+<script>
+const currentEmail = localStorage.getItem('currentUser');
+const users = JSON.parse(localStorage.getItem('users')) || [];
+const user = users.find(u => u.email === currentEmail);
+
+if(user){
+  document.getElementById('welcome').innerText = `Welcome, ${user.name}!`;
+} else {
+  // redirect if not logged in
+  window.location.href = 'signup.html';
+}
+
+document.getElementById('logout').addEventListener('click', ()=>{
+  localStorage.removeItem('currentUser');
+  window.location.href = 'signup.html';
+});
+</script>
+</body>
+</html>
