@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-swash | Smart Yoga App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo-section">
+      <img src="logo.png" alt="E-swash Logo" class="logo">
+      <h1>E-swash</h1>
+    </div>
+    <button id="joinFreeBtn" class="join-btn">Join for Free</button>
+  </header>
+
+  <!-- Main Body -->
+  <main class="video-section">
+    <div class="video-card">
+      <img src="morningyoga.png" alt="Morning Yoga" />
+      <h2>Morning Yoga Videos</h2>
+      <button class="join-now">Join Now</button>
+    </div>
+
+    <div class="video-card">
+      <img src="beginners.png" alt="Yoga for Beginners" />
+      <h2>Yoga for Beginners</h2>
+      <button class="join-now">Join Now</button>
+    </div>
+
+    <div class="video-card">
+      <img src="relax.jpg" alt="Evening Yoga" />
+      <h2>Evening Relaxation Videos</h2>
+      <button class="join-now">Join Now</button>
+    </div>
+  </main>
+
+  <!-- Login Popup -->
+  <div id="loginPopup" class="popup hidden">
+    <div class="popup-content">
+      <span id="closePopup" class="close">&times;</span>
+      <img src="yoga-quote.jpg" alt="Yoga Quote" class="quote-img" />
+      <h2>E-swash</h2>
+      <form id="loginForm">
+        <input type="text" id="email" placeholder="Username / Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+      <p>Don’t have an account? <a href="#" id="createAccountLink">Create a New Account</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
